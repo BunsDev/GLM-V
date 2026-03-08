@@ -80,7 +80,7 @@ pip install -r requirements.txt
 ```
 
 - vLLM 和 SGLang 依赖可能冲突，建议每个环境中只安装其中一个。
-- 请注意，安装完成之后，请检查 `transformers` 版本, 需要强制升级到 `5.0.0` 及以上版本。
+- 请注意，安装完成之后，请检查 `transformers` 版本, 需要强制升级到 `5.2.0` 及以上版本。
 
 ### transformers
 
@@ -107,10 +107,10 @@ vllm serve zai-org/GLM-4.6V \
 ### SGLang
 
 ```shell
-python3 -m sglang.launch_server --model-path zai-org/GLM-4.6V \
+sglang serve --model-path zai-org/GLM-4.6V \
      --tp-size 4 \
-     --tool-call-parser glm \
-     --reasoning-parser glm \
+     --tool-call-parser glm45 \
+     --reasoning-parser glm45 \
      --served-model-name glm-4.6v \
      --mm-enable-dp-encoder \
      --port 8000 \

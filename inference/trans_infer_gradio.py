@@ -353,7 +353,8 @@ details[open] summary{margin-bottom:10px}"""
 
 demo = gr.Blocks(title="GLM-4.1V Chat", theme=gr.themes.Soft(), css=css)
 with demo:
-    gr.Markdown("""
+    gr.Markdown(
+        """
                <div style="text-align: center; font-size: 32px; font-weight: bold; margin-bottom: 20px;">
                    GLM-4.1V-9B-Thinking Gradio Space🤗
                 </div>
@@ -361,7 +362,8 @@ with demo:
                <a href="https://huggingface.co/THUDM/GLM-4.1V-9B-Thinking">🤗 Model Hub</a> |
                <a href="https://github.com/THUDM/GLM-4.1V-Thinking">🌐 Github</a>
                 </div>
-                """)
+                """
+    )
 
     raw_history = gr.State([])
 

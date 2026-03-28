@@ -20,9 +20,9 @@
 **本开源仓库包含了`GLM-4.6V`, `GLM-4.5V` 和 `GLM-4.1V` 系列模型**。模型性能及简介请参见 [模型介绍章节](#模型介绍)。我们也总结了一些模型已知的问题，请移步 [已修复及仍存在的问题章节](#已修复及仍存在的问题)。
 
 ## 项目更新
-
-- 🔥 **News**：`2025/12/08`：我们发布了 **GLM-4.6V**，包括 GLM-4.6V（106B-A12B）和 GLM-4.6V-Flash（9B）。GLM-4.6V 将训练时的上下文窗口扩展到 128k tokens，并首次引入原生的 Function Calling 能力。这一升级有效打通了“视觉感知”到“可执行行动”的链路，为真实业务场景中的多模态智能体提供了统一的技术底座。
-- **News**：`2025/11/10`：我们发布了 **UI2Code^N**，一款强化学习增强的 UI 编码模型，具备 UI-to-code、UI-polish 和 UI-edit 能力。该模型基于 `GLM-4.1V-Base` 训练。点击[这里](https://huggingface.co/zai-org/UI2Code_N)查看。
+- **News**: `2026/03/28`: 我们发布了多个 GLM-V 相关的 Skills，包含 GLM-V-Grounding, GLM-V-Prompt-Gen, GLM-V-Prompt-Gen, GLM-V-Grounding 等多个分支领域的Skills，欢迎在[这里](skills)使用。
+- **News**: `2025/12/08`: 我们发布了 **GLM-4.6V**，包括 GLM-4.6V（106B-A12B）和 GLM-4.6V-Flash（9B）。GLM-4.6V 将训练时的上下文窗口扩展到 128k tokens，并首次引入原生的 Function Calling 能力。这一升级有效打通了“视觉感知”到“可执行行动”的链路，为真实业务场景中的多模态智能体提供了统一的技术底座。
+- **News**: `2025/11/10`: 我们发布了 **UI2Code^N**，一款强化学习增强的 UI 编码模型，具备 UI-to-code、UI-polish 和 UI-edit 能力。该模型基于 `GLM-4.1V-Base` 训练。点击[这里](https://huggingface.co/zai-org/UI2Code_N)查看。
 - **News**: `2025/10/27`: 我们发布了基于`GLM-4.1V-Base`训练的**Glyph**，Glyph 是一个通过视觉文本压缩来扩展上下文长度的框架， 欢迎前往[查看](https://huggingface.co/zai-org/Glyph)。
 - **News**: `2025/08/11`: 我们发布了 **GLM-4.5V**，多项指标大幅度提升。我们同步开源了我们工程同学手搓的调试用**桌面小助手应用**，接入GLM-4.5V后能够通过截屏、录屏等方式获取PC屏幕上的视觉信息，欢迎试玩和魔改，打造自己的多模态小助手，点击 [这里](https://huggingface.co/spaces/zai-org/GLM-4.5V-Demo-App) 下载安装包或 [自行构建](examples/vllm-chat-helper/README.md) ！
 - **News**: `2025/07/16`: 我们已经开源了训练 GLM-4.1V-Thinking 使用的 **VLM 奖励系统**。 查看[代码仓库](glmv_reward) 并在本地运行：`python examples/reward_system_demo.py`。

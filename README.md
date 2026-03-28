@@ -29,10 +29,8 @@ see [Fixed and Remaining Issues](#fixed-and-remaining-issues).
 
 ## Project Updates
 
-- 🔥 **News**: `2025/12/08`: We’ve released **GLM-4.6V** series model, including GLM-4.6V (106B-A12B) and
-  GLM-4.6V-Flash (9B). GLM-4.6V scales its context window to 128k tokens in training, and we integrate native Function
-  Calling capabilities for the first time. This effectively bridges the gap between "visual perception" and "executable
-  action," providing a unified technical foundation for multimodal agents in real-world business scenarios.
+- **News**: `2026/03/28`: We have released multiple GLM-V related Skills, covering several specialized areas
+  such as GLM-V-Grounding and GLM-V-Prompt-Gen. You are welcome to try them [here](skills).
 - **News**: `2025/11/10`: We released **UI2Code^N**, a RL-enhanced UI coding model with UI-to-code, UI-polish, and
   UI-edit capabilities. The model is trained based on `GLM-4.1V-Base`. Check it
   out [here](https://huggingface.co/zai-org/UI2Code_N).

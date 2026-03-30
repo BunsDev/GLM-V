@@ -27,25 +27,39 @@ Output:
 """
 
 import argparse
-import sys
-import time
 import json
+import sys
 from pathlib import Path
+
 
 def ensure_playwright():
     """Ensure playwright and browsers are installed."""
     try:
         from playwright.sync_api import sync_playwright
+
         return True
     except ImportError:
         print("Installing playwright...")
         import subprocess
-        subprocess.run([sys.executable, "-m", "pip", "install", "playwright"], check=True)
-        subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+
+        subprocess.run(
+            [sys.executable, "-m", "pip", "install", "playwright"], check=True
+        )
+        subprocess.run(
+            [sys.executable, "-m", "playwright", "install", "chromium"], check=True
+        )
         return True
 
-def render_url(url: str, output_path: str, width: int = 1280, height: int = 800,
-               wait: float = 2, full_page: bool = True, selector: str = None):
+
+def render_url(
+    url: str,
+    output_path: str,
+    width: int = 1280,
+    height: int = 800,
+    wait: float = 2,
+    full_page: bool = True,
+    selector: str = None,
+):
     """Render a URL to a PNG screenshot."""
     from playwright.sync_api import sync_playwright
 
@@ -86,8 +100,14 @@ def render_url(url: str, output_path: str, width: int = 1280, height: int = 800,
     return str(output_file)
 
 
-def render_multiple_routes(base_url: str, routes: list, output_dir: str,
-                          width: int = 1280, height: int = 800, wait: float = 2):
+def render_multiple_routes(
+    base_url: str,
+    routes: list,
+    output_dir: str,
+    width: int = 1280,
+    height: int = 800,
+    wait: float = 2,
+):
     """Render multiple routes and save screenshots."""
     from playwright.sync_api import sync_playwright
 
@@ -115,10 +135,24 @@ def render_multiple_routes(base_url: str, routes: list, output_dir: str,
                 page.goto(url, wait_until="networkidle", timeout=30000)
                 page.wait_for_timeout(int(wait * 1000))
                 page.screenshot(path=str(output_path), full_page=True)
-                results.append({"route": route, "url": url, "screenshot": str(output_path), "status": "ok"})
+                results.append(
+                    {
+                        "route": route,
+                        "url": url,
+                        "screenshot": str(output_path),
+                        "status": "ok",
+                    }
+                )
                 print(f"OK: {route} -> {output_path}")
             except Exception as e:
-                results.append({"route": route, "url": url, "screenshot": None, "status": f"error: {e}"})
+                results.append(
+                    {
+                        "route": route,
+                        "url": url,
+                        "screenshot": None,
+                        "status": f"error: {e}",
+                    }
+                )
                 print(f"FAIL: {route} -> {e}")
 
         browser.close()
@@ -132,14 +166,32 @@ def render_multiple_routes(base_url: str, routes: list, output_dir: str,
 def main():
     parser = argparse.ArgumentParser(description="Render web pages to PNG screenshots")
     parser.add_argument("--url", required=True, help="Base URL to render")
-    parser.add_argument("--output", required=True, help="Output PNG path or directory (for multi-route)")
-    parser.add_argument("--width", type=int, default=1280, help="Viewport width (default: 1280)")
-    parser.add_argument("--height", type=int, default=800, help="Viewport height (default: 800)")
-    parser.add_argument("--wait", type=float, default=2, help="Wait time in seconds after load (default: 2)")
-    parser.add_argument("--full-page", action="store_true", default=True, help="Capture full page")
+    parser.add_argument(
+        "--output", required=True, help="Output PNG path or directory (for multi-route)"
+    )
+    parser.add_argument(
+        "--width", type=int, default=1280, help="Viewport width (default: 1280)"
+    )
+    parser.add_argument(
+        "--height", type=int, default=800, help="Viewport height (default: 800)"
+    )
+    parser.add_argument(
+        "--wait",
+        type=float,
+        default=2,
+        help="Wait time in seconds after load (default: 2)",
+    )
+    parser.add_argument(
+        "--full-page", action="store_true", default=True, help="Capture full page"
+    )
     parser.add_argument("--no-full-page", dest="full_page", action="store_false")
-    parser.add_argument("--selector", help="Wait for this CSS selector before screenshot")
-    parser.add_argument("--routes", help="Comma-separated routes to screenshot (e.g., /,/about,/products)")
+    parser.add_argument(
+        "--selector", help="Wait for this CSS selector before screenshot"
+    )
+    parser.add_argument(
+        "--routes",
+        help="Comma-separated routes to screenshot (e.g., /,/about,/products)",
+    )
 
     args = parser.parse_args()
 
@@ -147,9 +199,19 @@ def main():
 
     if args.routes:
         routes = args.routes.split(",")
-        render_multiple_routes(args.url, routes, args.output, args.width, args.height, args.wait)
+        render_multiple_routes(
+            args.url, routes, args.output, args.width, args.height, args.wait
+        )
     else:
-        render_url(args.url, args.output, args.width, args.height, args.wait, args.full_page, args.selector)
+        render_url(
+            args.url,
+            args.output,
+            args.width,
+            args.height,
+            args.wait,
+            args.full_page,
+            args.selector,
+        )
 
 
 if __name__ == "__main__":

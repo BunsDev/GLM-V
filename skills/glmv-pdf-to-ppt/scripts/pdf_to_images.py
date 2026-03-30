@@ -10,10 +10,10 @@ Output (stdout):
     JSON list of {"page": int, "path": "/abs/path/page_001.png"}
 """
 
+import argparse
+import json
 import os
 import sys
-import json
-import argparse
 import tempfile
 
 

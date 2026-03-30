@@ -3,13 +3,20 @@
 本工具脚本包含：从模型的回复文本中解析坐标框，对坐标框做反向归一化，在图片上可视化画框等。
 """
 
-import math, os, io, base64, json, ast, copy, numbers, bisect, re
-from PIL import Image, ImageDraw, ImageFont
-import cv2
-from enum import Enum, auto
-import numpy as np
-import matplotlib.pyplot as plt
+import ast
+import base64
+import bisect
 import colorsys
+import io
+import numbers
+import os
+import re
+from enum import Enum, auto
+
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
 
 
 class BracketsStyle(Enum):

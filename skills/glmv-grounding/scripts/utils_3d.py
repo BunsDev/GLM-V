@@ -16,11 +16,17 @@ v0|    |                 |v1 |
   v3                     v2
 """
 
-import math, io, base64, json, ast, re
-import numpy as np
+import ast
+import base64
+import io
+import json
+import math
+import re
+
 import cv2
-from PIL import Image
 import matplotlib.pyplot as plt
+import numpy as np
+from PIL import Image
 
 
 def _to_number(x):

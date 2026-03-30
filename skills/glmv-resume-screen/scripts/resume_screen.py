@@ -9,13 +9,13 @@ Official API docs (https://docs.bigmodel.cn/api-reference/模型-api/对话补�
 - file_url cannot be mixed with image_url or video_url in the same request
 """
 
-import os
-import json
-import base64
 import argparse
+import base64
+import json
+import os
 import sys
 from pathlib import Path
-from typing import List, Optional, Dict, Any
+from typing import Any, Dict, List, Optional
 
 import requests
 

@@ -1,12 +1,23 @@
-import base64, cv2, io, os, math, tempfile, re, json, ast, shutil, subprocess, glob
-import numpy as np
-from pathlib import Path
-from decord import VideoReader, cpu
-import matplotlib.pyplot as plt
-import traceback
+import ast
+import base64
 import colorsys
-from PIL import Image
+import glob
+import io
+import json
+import math
+import os
+import re
+import shutil
+import subprocess
+import tempfile
 from ast import literal_eval
+from pathlib import Path
+
+import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+from decord import VideoReader, cpu
+from PIL import Image
 
 
 def _to_number(x):

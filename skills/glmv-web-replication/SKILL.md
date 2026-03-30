@@ -73,7 +73,7 @@ blueprint/
 │   ├── products/                 # "Product list" reachable from homepage
 │   │   ├── _page.md
 │   │   ├── _full.png
-│   │   ├── _scroll_00.png ~ N.png 
+│   │   ├── _scroll_00.png ~ N.png
 │   │   ├── _interactions.md
 │   │   ├── _interactions/
 │   │   ├── _assets/
@@ -132,7 +132,7 @@ Obtain the list of interactive elements on the page, interact with all of them, 
 agent-browser open <Product List URL>
 agent-browser screenshot blueprint/home/products/_scroll_00.png
 agent-browser wait --load networkidle
-agent-browser snapshot -i 
+agent-browser snapshot -i
 # Suppose the output is:
 # button "All" [ref=e1]                ← filter tab
 # button "Electronics" [ref=e2]

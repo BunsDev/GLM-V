@@ -12,10 +12,11 @@ Output (stdout):
     JSON: {"path": "/abs/path/to/<name>_crop.png"}
 """
 
-import os
-import json
 import argparse
+import json
+import os
 import re
+
 from PIL import Image as PILImage
 
 

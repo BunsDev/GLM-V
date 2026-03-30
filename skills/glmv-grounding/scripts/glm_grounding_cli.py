@@ -12,13 +12,13 @@ Usage:
 import argparse
 import base64
 import io
+import ipaddress
 import json
 import logging
 import mimetypes
 import os
 import socket
 import sys
-import ipaddress
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse

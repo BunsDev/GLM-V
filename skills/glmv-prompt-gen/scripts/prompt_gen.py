@@ -12,13 +12,13 @@ Vision model enum: glm-4.6v, autoglm-phone, glm-4.6v-flash, glm-4.6v-flashx, glm
 - image_url and video_url cannot mix in the same request
 """
 
-import os
-import json
-import base64
 import argparse
+import base64
+import json
+import os
 import sys
 from pathlib import Path
-from typing import List, Optional, Dict, Any
+from typing import Any, Dict, List, Optional
 
 import requests
 

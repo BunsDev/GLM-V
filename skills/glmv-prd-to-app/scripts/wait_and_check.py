@@ -19,8 +19,8 @@ import argparse
 import json
 import sys
 import time
-import urllib.request
 import urllib.error
+import urllib.request
 
 
 def wait_for_server(url: str, timeout: int = 60, interval: int = 2) -> bool:
@@ -32,9 +32,16 @@ def wait_for_server(url: str, timeout: int = 60, interval: int = 2) -> bool:
         try:
             req = urllib.request.Request(url)
             with urllib.request.urlopen(req, timeout=5) as resp:
-                print(f"Server is UP (status: {resp.status}, took {time.time()-start:.1f}s)")
+                print(
+                    f"Server is UP (status: {resp.status}, took {time.time()-start:.1f}s)"
+                )
                 return True
-        except (urllib.error.URLError, urllib.error.HTTPError, ConnectionError, OSError):
+        except (
+            urllib.error.URLError,
+            urllib.error.HTTPError,
+            ConnectionError,
+            OSError,
+        ):
             time.sleep(interval)
 
     print(f"TIMEOUT: Server did not respond within {timeout}s")
@@ -65,8 +72,12 @@ def check_route(base_url: str, route: str) -> dict:
 def main():
     parser = argparse.ArgumentParser(description="Wait for server and check routes")
     parser.add_argument("--url", required=True, help="Base URL")
-    parser.add_argument("--timeout", type=int, default=60, help="Wait timeout (seconds)")
-    parser.add_argument("--interval", type=int, default=2, help="Check interval (seconds)")
+    parser.add_argument(
+        "--timeout", type=int, default=60, help="Wait timeout (seconds)"
+    )
+    parser.add_argument(
+        "--interval", type=int, default=2, help="Check interval (seconds)"
+    )
     parser.add_argument("--routes", nargs="*", default=[], help="Routes to verify")
 
     args = parser.parse_args()

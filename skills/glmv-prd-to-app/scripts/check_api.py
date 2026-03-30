@@ -26,13 +26,20 @@ Examples:
 import argparse
 import json
 import sys
-import urllib.request
 import urllib.error
+import urllib.request
 from pathlib import Path
 
 
-def check_endpoint(base_url: str, method: str, path: str, body: dict = None,
-                   expected_status: int = 200, timeout: int = 10, verbose: bool = False) -> dict:
+def check_endpoint(
+    base_url: str,
+    method: str,
+    path: str,
+    body: dict = None,
+    expected_status: int = 200,
+    timeout: int = 10,
+    verbose: bool = False,
+) -> dict:
     """Check a single API endpoint."""
     url = f"{base_url.rstrip('/')}{path}"
     result = {
@@ -96,8 +103,12 @@ def main():
     parser = argparse.ArgumentParser(description="Check API endpoints")
     parser.add_argument("--base-url", required=True, help="Base URL for API")
     parser.add_argument("--endpoints-file", help="JSON file with endpoint definitions")
-    parser.add_argument("--endpoints", nargs="*", help="Endpoints as METHOD:PATH (e.g., GET:/products)")
-    parser.add_argument("--timeout", type=int, default=10, help="Request timeout in seconds")
+    parser.add_argument(
+        "--endpoints", nargs="*", help="Endpoints as METHOD:PATH (e.g., GET:/products)"
+    )
+    parser.add_argument(
+        "--timeout", type=int, default=10, help="Request timeout in seconds"
+    )
     parser.add_argument("--verbose", action="store_true", help="Show response bodies")
 
     args = parser.parse_args()
@@ -117,7 +128,9 @@ def main():
         for ep in args.endpoints:
             if ":" in ep:
                 method, path = ep.split(":", 1)
-                endpoints.append({"method": method.upper(), "path": path, "expected_status": 200})
+                endpoints.append(
+                    {"method": method.upper(), "path": path, "expected_status": 200}
+                )
             else:
                 endpoints.append({"method": "GET", "path": ep, "expected_status": 200})
 
@@ -125,11 +138,19 @@ def main():
         # Auto-discover common endpoints
         print("No endpoints specified. Trying common paths...")
         common_paths = [
-            "/", "/api", "/api/health",
-            "/api/products", "/api/users", "/api/categories",
-            "/api/posts", "/api/items", "/api/orders",
+            "/",
+            "/api",
+            "/api/health",
+            "/api/products",
+            "/api/users",
+            "/api/categories",
+            "/api/posts",
+            "/api/items",
+            "/api/orders",
         ]
-        endpoints = [{"method": "GET", "path": p, "expected_status": 200} for p in common_paths]
+        endpoints = [
+            {"method": "GET", "path": p, "expected_status": 200} for p in common_paths
+        ]
 
     # Run checks
     results = []
@@ -149,7 +170,9 @@ def main():
 
         status_icon = "PASS" if result["passed"] else "FAIL"
         desc = ep.get("description", "")
-        print(f"[{status_icon}] {result['method']} {result['path']} -> {result.get('status', 'N/A')} {desc}")
+        print(
+            f"[{status_icon}] {result['method']} {result['path']} -> {result.get('status', 'N/A')} {desc}"
+        )
 
         if result.get("error"):
             print(f"       Error: {result['error']}")
@@ -166,7 +189,12 @@ def main():
     total = len(results)
     print(f"\n--- API CHECK SUMMARY ---")
     print(f"Total: {total}  Passed: {passed}  Failed: {failed}")
-    print(json.dumps({"total": total, "passed": passed, "failed": failed, "results": results}, indent=2))
+    print(
+        json.dumps(
+            {"total": total, "passed": passed, "failed": failed, "results": results},
+            indent=2,
+        )
+    )
 
     sys.exit(0 if failed == 0 else 1)
 

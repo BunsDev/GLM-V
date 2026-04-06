@@ -7,8 +7,8 @@ PyMuPDF>=1.27.2
 av>=16.1.0
 spaces>=0.47.0
 gradio>=6.9.0
-transformers>=5.3.0
+transformers>=5.5.0
 accelerate>=1.13.0
 
-# sglang>=0.5.9
-# vllm>=0.17.0
+# sglang>=0.5.10
+# vllm>=0.19.0

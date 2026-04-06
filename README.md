@@ -29,6 +29,8 @@ see [Fixed and Remaining Issues](#fixed-and-remaining-issues).
 
 ## Project Updates
 
+- **News**: `2026/04/02`: We released [GLM-5V-Turbo](https://docs.z.ai/guides/vlm/glm-5v-turbo) 
+  and [GLM-skills](https://github.com/zai-org/GLM-skills).
 - **News**: `2026/03/28`: We have released multiple GLM-V related Skills, covering several specialized areas
   such as GLM-V-Grounding and GLM-V-Prompt-Gen. You are welcome to try them [here](skills).
 - **News**: `2025/11/10`: We released **UI2Code^N**, a RL-enhanced UI coding model with UI-to-code, UI-polish, and

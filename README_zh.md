@@ -20,6 +20,8 @@
 **本开源仓库包含了`GLM-4.6V`, `GLM-4.5V` 和 `GLM-4.1V` 系列模型**。模型性能及简介请参见 [模型介绍章节](#模型介绍)。我们也总结了一些模型已知的问题，请移步 [已修复及仍存在的问题章节](#已修复及仍存在的问题)。
 
 ## 项目更新
+
+- **News**: `2026/04/02`: 我们发布了 [GLM-5V-Turbo](https://docs.z.ai/guides/vlm/glm-5v-turbo) 以及 [GLM-skills](https://github.com/zai-org/GLM-skills)。
 - **News**: `2026/03/28`: 我们发布了多个 GLM-V 相关的 Skills，包含 GLM-V-Grounding, GLM-V-Prompt-Gen, GLM-V-Prompt-Gen, GLM-V-Grounding 等多个分支领域的Skills，欢迎在[这里](skills)使用。
 - **News**: `2025/12/08`: 我们发布了 **GLM-4.6V**，包括 GLM-4.6V（106B-A12B）和 GLM-4.6V-Flash（9B）。GLM-4.6V 将训练时的上下文窗口扩展到 128k tokens，并首次引入原生的 Function Calling 能力。这一升级有效打通了“视觉感知”到“可执行行动”的链路，为真实业务场景中的多模态智能体提供了统一的技术底座。
 - **News**: `2025/11/10`: 我们发布了 **UI2Code^N**，一款强化学习增强的 UI 编码模型，具备 UI-to-code、UI-polish 和 UI-edit 能力。该模型基于 `GLM-4.1V-Base` 训练。点击[这里](https://huggingface.co/zai-org/UI2Code_N)查看。
